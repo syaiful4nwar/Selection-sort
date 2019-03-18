@@ -1,0 +1,46 @@
+#include <iostream>
+#include <conio.h>
+#include <time.h>
+#include <cstdlib>
+using namespace std;
+
+int main(int argc, char **argv)
+{
+	int banyak_data,key,i,j,tampung,data[banyak_data];
+    cout<<"Masukkan banyak data = ";
+    cin>>banyak_data;
+    srand(time(0));
+    for(i=0;i<banyak_data;i++)
+    {
+        data[i]=rand()%100;
+    }
+    cout<<"data terurut =";
+    for(i=0;i<banyak_data;i++)
+    {
+        cout<<data[i]<<" ";
+    }
+    
+    cout<<"\n\n\n";
+    for(i=0;i<banyak_data;i++)
+    {
+        key=i;
+        for(j=i+1;j<banyak_data;j++)
+        {
+            if(data[key]>data[j])
+            {
+            key=j;
+            }
+        }
+        tampung=data[key];
+        data[key]=data[i];
+        data[i]=tampung;
+    }
+    cout<<"\n";
+    cout<<"data terurut =";
+    for(i=0;i<banyak_data;i++)
+    {
+        cout<<data[i]<<" ";
+    }
+    getch();
+	return 0;
+}
